@@ -39,9 +39,23 @@
 		E18182E52D14059700BC65DE /* ebuddy-technical-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ebuddy-technical-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E1A4994F2D141EAB006AC2E8 /* Exceptions for "ebuddy-technical-test" folder in "ebuddy-technical-test" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Supporting Files/Firebase/Debug/GoogleService-Info.plist",
+				"Supporting Files/Firebase/Release/GoogleService-Info.plist",
+			);
+			target = E18182CA2D14059500BC65DE /* ebuddy-technical-test */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E18182CD2D14059500BC65DE /* ebuddy-technical-test */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E1A4994F2D141EAB006AC2E8 /* Exceptions for "ebuddy-technical-test" folder in "ebuddy-technical-test" target */,
+			);
 			path = "ebuddy-technical-test";
 			sourceTree = "<group>";
 		};
@@ -119,6 +133,7 @@
 				E18182C72D14059500BC65DE /* Sources */,
 				E18182C82D14059500BC65DE /* Frameworks */,
 				E18182C92D14059500BC65DE /* Resources */,
+				E1A499472D141B13006AC2E8 /* Firebase Environment Run Script */,
 			);
 			buildRules = (
 			);
@@ -257,6 +272,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E1A499472D141B13006AC2E8 /* Firebase Environment Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Firebase Environment Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "INFO_PLIST=GoogleService-Info.plist\n\nDEBUG_INFO_PLIST=${PROJECT_DIR}/${TARGET_NAME}/Supporting\\ Files/Firebase/Debug/${INFO_PLIST}\nRELEASE_INFO_PLIST=${PROJECT_DIR}/${TARGET_NAME}/Supporting\\ Files/Firebase/Release/${INFO_PLIST}\n\necho \"Checking ${INFO_PLIST} in ${DEBUG_INFO_PLIST}\"\nif [ ! -f $DEBUG_INFO_PLIST ] ; then\n    echo \"Debug GoogleService-Info.plist not found.\"\n    exit 1\nfi\n\necho \"Checking ${INFO_PLIST} in ${RELEASE_INFO_PLIST}\"\nif [ ! -f $RELEASE_INFO_PLIST ] ; then\n    echo \"Release GoogleService-Info.plist not found.\"\n    exit 1\nfi\n\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Copying ${INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\nif [ \"${CONFIGURATION}\" == \"Release\" ] ; then\n    echo \"Copied ${RELEASE_INFO_PLIST}.\"\n    cp \"${RELEASE_INFO_PLIST}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Copied ${DEBUG_INFO_PLIST}.\"\n    cp \"${DEBUG_INFO_PLIST}\" \"${PLIST_DESTINATION}\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E18182C72D14059500BC65DE /* Sources */ = {
@@ -425,6 +461,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ebuddy-technical-test/Preview Content\"";
 				DEVELOPMENT_TEAM = 9P78Q47KY2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -454,6 +491,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ebuddy-technical-test/Preview Content\"";
 				DEVELOPMENT_TEAM = 9P78Q47KY2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
