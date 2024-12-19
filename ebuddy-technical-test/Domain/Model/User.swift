@@ -20,6 +20,17 @@ enum Gender {
             self = .unknown
         }
     }
+    
+    var stringValue: String? {
+        switch self {
+        case .female:
+            return "Female"
+        case .male:
+            return "Male"
+        case .unknown:
+            return nil
+        }
+    }
 }
 
 struct User {

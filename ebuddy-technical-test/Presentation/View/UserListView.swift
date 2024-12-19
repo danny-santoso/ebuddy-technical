@@ -23,7 +23,18 @@ struct UserListView: View {
                     if let users = viewModel.users {
                         List {
                             ForEach(users, id: \.id) { user in
-                                Text(user.id)
+                                VStack {
+                                    Text(user.id)
+                                    if let email = user.email {
+                                        Text(email)
+                                    }
+                                    if let phone = user.phone {
+                                        Text(phone)
+                                    }
+                                    if let gender = user.gender?.stringValue {
+                                        Text(gender)
+                                    }
+                                }
                             }
                         }
                     } else if let errorMessage = viewModel.errorMessage {
