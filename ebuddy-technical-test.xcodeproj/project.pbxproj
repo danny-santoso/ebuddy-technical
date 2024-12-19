@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		E18182DC2D14059700BC65DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E18182C32D14059500BC65DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E18182CA2D14059500BC65DE;
+			remoteInfo = "ebuddy-technical-test";
+		};
+		E18182E62D14059700BC65DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E18182C32D14059500BC65DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E18182CA2D14059500BC65DE;
+			remoteInfo = "ebuddy-technical-test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E18182CB2D14059500BC65DE /* ebuddy-technical-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ebuddy-technical-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18182DB2D14059700BC65DE /* ebuddy-technical-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ebuddy-technical-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18182E52D14059700BC65DE /* ebuddy-technical-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ebuddy-technical-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E18182CD2D14059500BC65DE /* ebuddy-technical-test */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ebuddy-technical-test";
+			sourceTree = "<group>";
+		};
+		E18182DE2D14059700BC65DE /* ebuddy-technical-testTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ebuddy-technical-testTests";
+			sourceTree = "<group>";
+		};
+		E18182E82D14059700BC65DE /* ebuddy-technical-testUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ebuddy-technical-testUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E18182C82D14059500BC65DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18182D82D14059700BC65DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18182E22D14059700BC65DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E18182C22D14059500BC65DE = {
+			isa = PBXGroup;
+			children = (
+				E18182CD2D14059500BC65DE /* ebuddy-technical-test */,
+				E18182DE2D14059700BC65DE /* ebuddy-technical-testTests */,
+				E18182E82D14059700BC65DE /* ebuddy-technical-testUITests */,
+				E18182CC2D14059500BC65DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E18182CC2D14059500BC65DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E18182CB2D14059500BC65DE /* ebuddy-technical-test.app */,
+				E18182DB2D14059700BC65DE /* ebuddy-technical-testTests.xctest */,
+				E18182E52D14059700BC65DE /* ebuddy-technical-testUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E18182CA2D14059500BC65DE /* ebuddy-technical-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E18182EF2D14059700BC65DE /* Build configuration list for PBXNativeTarget "ebuddy-technical-test" */;
+			buildPhases = (
+				E18182C72D14059500BC65DE /* Sources */,
+				E18182C82D14059500BC65DE /* Frameworks */,
+				E18182C92D14059500BC65DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E18182CD2D14059500BC65DE /* ebuddy-technical-test */,
+			);
+			name = "ebuddy-technical-test";
+			packageProductDependencies = (
+			);
+			productName = "ebuddy-technical-test";
+			productReference = E18182CB2D14059500BC65DE /* ebuddy-technical-test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E18182DA2D14059700BC65DE /* ebuddy-technical-testTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E18182F22D14059700BC65DE /* Build configuration list for PBXNativeTarget "ebuddy-technical-testTests" */;
+			buildPhases = (
+				E18182D72D14059700BC65DE /* Sources */,
+				E18182D82D14059700BC65DE /* Frameworks */,
+				E18182D92D14059700BC65DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E18182DD2D14059700BC65DE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E18182DE2D14059700BC65DE /* ebuddy-technical-testTests */,
+			);
+			name = "ebuddy-technical-testTests";
+			packageProductDependencies = (
+			);
+			productName = "ebuddy-technical-testTests";
+			productReference = E18182DB2D14059700BC65DE /* ebuddy-technical-testTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E18182E42D14059700BC65DE /* ebuddy-technical-testUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E18182F52D14059700BC65DE /* Build configuration list for PBXNativeTarget "ebuddy-technical-testUITests" */;
+			buildPhases = (
+				E18182E12D14059700BC65DE /* Sources */,
+				E18182E22D14059700BC65DE /* Frameworks */,
+				E18182E32D14059700BC65DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E18182E72D14059700BC65DE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E18182E82D14059700BC65DE /* ebuddy-technical-testUITests */,
+			);
+			name = "ebuddy-technical-testUITests";
+			packageProductDependencies = (
+			);
+			productName = "ebuddy-technical-testUITests";
+			productReference = E18182E52D14059700BC65DE /* ebuddy-technical-testUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E18182C32D14059500BC65DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					E18182CA2D14059500BC65DE = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					E18182DA2D14059700BC65DE = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E18182CA2D14059500BC65DE;
+					};
+					E18182E42D14059700BC65DE = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E18182CA2D14059500BC65DE;
+					};
+				};
+			};
+			buildConfigurationList = E18182C62D14059500BC65DE /* Build configuration list for PBXProject "ebuddy-technical-test" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E18182C22D14059500BC65DE;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E18182CC2D14059500BC65DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E18182CA2D14059500BC65DE /* ebuddy-technical-test */,
+				E18182DA2D14059700BC65DE /* ebuddy-technical-testTests */,
+				E18182E42D14059700BC65DE /* ebuddy-technical-testUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E18182C92D14059500BC65DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18182D92D14059700BC65DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18182E32D14059700BC65DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E18182C72D14059500BC65DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18182D72D14059700BC65DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E18182E12D14059700BC65DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E18182DD2D14059700BC65DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E18182CA2D14059500BC65DE /* ebuddy-technical-test */;
+			targetProxy = E18182DC2D14059700BC65DE /* PBXContainerItemProxy */;
+		};
+		E18182E72D14059700BC65DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E18182CA2D14059500BC65DE /* ebuddy-technical-test */;
+			targetProxy = E18182E62D14059700BC65DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E18182ED2D14059700BC65DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E18182EE2D14059700BC65DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E18182F02D14059700BC65DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ebuddy-technical-test/Preview Content\"";
+				DEVELOPMENT_TEAM = 9P78Q47KY2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dannysantoso.ebuddy-technical-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E18182F12D14059700BC65DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ebuddy-technical-test/Preview Content\"";
+				DEVELOPMENT_TEAM = 9P78Q47KY2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dannysantoso.ebuddy-technical-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E18182F32D14059700BC65DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9P78Q47KY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dannysantoso.ebuddy-technical-testTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ebuddy-technical-test.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ebuddy-technical-test";
+			};
+			name = Debug;
+		};
+		E18182F42D14059700BC65DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9P78Q47KY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dannysantoso.ebuddy-technical-testTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ebuddy-technical-test.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ebuddy-technical-test";
+			};
+			name = Release;
+		};
+		E18182F62D14059700BC65DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9P78Q47KY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dannysantoso.ebuddy-technical-testUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ebuddy-technical-test";
+			};
+			name = Debug;
+		};
+		E18182F72D14059700BC65DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9P78Q47KY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dannysantoso.ebuddy-technical-testUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ebuddy-technical-test";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E18182C62D14059500BC65DE /* Build configuration list for PBXProject "ebuddy-technical-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E18182ED2D14059700BC65DE /* Debug */,
+				E18182EE2D14059700BC65DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E18182EF2D14059700BC65DE /* Build configuration list for PBXNativeTarget "ebuddy-technical-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E18182F02D14059700BC65DE /* Debug */,
+				E18182F12D14059700BC65DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E18182F22D14059700BC65DE /* Build configuration list for PBXNativeTarget "ebuddy-technical-testTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E18182F32D14059700BC65DE /* Debug */,
+				E18182F42D14059700BC65DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E18182F52D14059700BC65DE /* Build configuration list for PBXNativeTarget "ebuddy-technical-testUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E18182F62D14059700BC65DE /* Debug */,
+				E18182F72D14059700BC65DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E18182C32D14059500BC65DE /* Project object */;
+}
