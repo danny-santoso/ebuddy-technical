@@ -73,9 +73,11 @@ final class UploaderService: UploaderServiceProtocol {
         let boundary = "Boundary-\(UUID().uuidString)"
         var headers: [String: String] = [
             "Content-Type": "multipart/form-data; boundary=\(boundary)",
-            "Accept": "application/json",
-            "Authorization": "Basic "
+            "Accept": "application/json"
         ]
+        if let apiKey = Bundle.main.infoDictionary?["IMAGEKIT_API_KEY"] as? String {
+            headers["Authorization"] = "Basic \(apiKey)"
+        }
         headers.merge(extra) { first, _ in first }
         
         return Future<Response, Error> { promise in

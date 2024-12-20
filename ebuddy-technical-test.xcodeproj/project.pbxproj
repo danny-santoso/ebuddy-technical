@@ -45,6 +45,7 @@
 		E1A4994F2D141EAB006AC2E8 /* Exceptions for "ebuddy-technical-test" folder in "ebuddy-technical-test" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				"Supporting Files/Firebase/Debug/GoogleService-Info.plist",
 				"Supporting Files/Firebase/Release/GoogleService-Info.plist",
 			);
@@ -342,6 +343,8 @@
 /* Begin XCBuildConfiguration section */
 		E18182ED2D14059700BC65DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = E18182CD2D14059500BC65DE /* ebuddy-technical-test */;
+			baseConfigurationReferenceRelativePath = config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -405,6 +408,8 @@
 		};
 		E18182EE2D14059700BC65DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = E18182CD2D14059500BC65DE /* ebuddy-technical-test */;
+			baseConfigurationReferenceRelativePath = config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -471,6 +476,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ebuddy-technical-test/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +507,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ebuddy-technical-test/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
