@@ -22,6 +22,17 @@ enum GenderResponse {
             self = .unknown
         }
     }
+    
+    var intValue: Int? {
+        switch self {
+        case .female:
+            return 0
+        case .male:
+            return 1
+        default:
+            return nil
+        }
+    }
 }
 
 struct UserResponse: Decodable {
@@ -37,11 +48,13 @@ struct UserResponse: Decodable {
     var rate: Float?
     var ratting: Float?
     var reviews: Int?
+    var games: [String]?
     
     enum CodingKeys: String, CodingKey {
         case id = "uid"
         case phone = "phoneNumber"
-        case email, gender, name, isVerified, isOnline, imageURL, instagramURL, rate, ratting, reviews
+        case gender = "ge"
+        case email, name, isVerified, isOnline, imageURL, instagramURL, rate, ratting, reviews, games
     }
     
     init(from decoder: Decoder) throws {
@@ -57,6 +70,7 @@ struct UserResponse: Decodable {
         rate = try container.decodeIfPresent(Float.self, forKey: .rate)
         ratting = try container.decodeIfPresent(Float.self, forKey: .ratting)
         reviews = try container.decodeIfPresent(Int.self, forKey: .reviews)
+        games = try container.decodeIfPresent([String].self, forKey: .games)
         if let genderInt = try container.decodeIfPresent(Int.self, forKey: .gender) {
             gender = GenderResponse(rawValue: genderInt) ?? .unknown
         }

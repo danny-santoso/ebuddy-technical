@@ -9,7 +9,27 @@ import Combine
 import FirebaseFirestore
 
 protocol FirebaseServiceProtocol {
-    func getDocuments<Response: Decodable>(to type: Response.Type, collection path: String) -> AnyPublisher<[Response], Error>
+    func getDocuments<Response: Decodable>(
+        to type: Response.Type,
+        collection path: String,
+        filters: [(field: String, value: Any)],
+        sorting: [(field: String, descending: Bool)]
+    ) -> AnyPublisher<[Response], Error>
+}
+
+extension FirebaseServiceProtocol {
+    func getDocuments<Response: Decodable>(
+        to type: Response.Type,
+        collection path: String,
+        filters: [(field: String, value: Any)] = [],
+        sorting: [(field: String, descending: Bool)] = []
+    ) -> AnyPublisher<[Response], Error> {
+        getDocuments(
+            to: type,
+            collection: path,
+            filters: filters,
+            sorting: sorting)
+    }
 }
 
 final class FirebaseService {
@@ -31,9 +51,29 @@ final class FirebaseService {
 }
 
 extension FirebaseService: FirebaseServiceProtocol {
-    func getDocuments<Response: Decodable>(to type: Response.Type, collection path: String) -> AnyPublisher<[Response], Error> {
+    func getDocuments<Response: Decodable>(
+        to type: Response.Type,
+        collection path: String,
+        filters: [(field: String, value: Any)] = [],
+        sorting: [(field: String, descending: Bool)] = []
+    ) -> AnyPublisher<[Response], Error> {
         return Future<[Response], Error> { [weak self] completion in
-            self?.firestore.collection(path).getDocuments() { (result, error) in
+            guard let self = self else {
+                completion(.failure(FirebaseServiceError.unknownError))
+                return
+            }
+            
+            var query: Query = self.firestore.collection(path)
+            
+            for filter in filters {
+                query = query.whereField(filter.field, isEqualTo: filter.value)
+            }
+            
+            for sort in sorting {
+                query = query.order(by: sort.field, descending: sort.descending)
+            }
+            
+            query.getDocuments { (result, error) in
                 if let error = error {
                     completion(.failure(error))
                     return

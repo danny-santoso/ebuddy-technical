@@ -8,13 +8,20 @@
 import Combine
 
 final class FetchUserUseCase {
+    
     private let repository: UserRepositoryProtocol
     
     init(repository: UserRepositoryProtocol) {
         self.repository = repository
     }
     
-    func execute() -> AnyPublisher<[User], Error> {
-        return repository.getUserList()
+    func execute(gender: Gender?) -> AnyPublisher<[User], Error> {
+        guard let gender else { return repository.getUserList() }
+        switch gender {
+        case .female:
+            return repository.getFemaleUserList()
+        default:
+            return repository.getUserList()
+        }
     }
 }

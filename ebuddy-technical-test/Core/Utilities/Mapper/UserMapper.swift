@@ -21,7 +21,8 @@ final class UserMapper {
                 instagramURL: response.instagramURL,
                 rate: response.rate,
                 ratting: response.ratting,
-                reviews: response.reviews)
+                reviews: response.reviews,
+                games: response.games)
         }
     }
 }

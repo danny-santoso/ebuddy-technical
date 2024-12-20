@@ -78,14 +78,13 @@ struct UserCardView: View {
                     
                     if let games = user.games, !games.isEmpty {
                         HStack {
-                            ForEach(games.prefix(2)) { game in
-                                if let imageURL = game.imageURL {
-                                    WebImage(url: URL(string: imageURL))
-                                        .resizable()
-                                        .indicator(.activity)
-                                        .transition(.fade(duration: 0.5))
-                                        .frame(width: 40, height: 40)
-                                }
+                            ForEach(games.prefix(2), id: \.self) { game in
+                                WebImage(url: URL(string: game))
+                                    .resizable()
+                                    .indicator(.activity)
+                                    .transition(.fade(duration: 0.5))
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)

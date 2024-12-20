@@ -24,7 +24,7 @@ final class UserListViewModel: ObservableObject {
     
     func fetchUser() {
         loadingState = true
-        fetchUserUseCase.execute()
+        fetchUserUseCase.execute(gender: .female)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self else { return }

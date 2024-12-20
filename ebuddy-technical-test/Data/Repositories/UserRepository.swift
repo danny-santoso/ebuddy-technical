@@ -10,6 +10,8 @@ import Combine
 
 protocol UserRepositoryProtocol: AnyObject {
     func getUserList() -> AnyPublisher<[User], Error>
+    
+    func getFemaleUserList() -> AnyPublisher<[User], Error>
 }
 
 final class UserRepository: NSObject {
@@ -24,6 +26,12 @@ final class UserRepository: NSObject {
 extension UserRepository: UserRepositoryProtocol {
     func getUserList() -> AnyPublisher<[User], Error> {
         return dataSource.getUserList()
+            .map { UserMapper.mapUserResponsesToDomains(input: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getFemaleUserList() -> AnyPublisher<[User], Error> {
+        return dataSource.getFemaleUserList()
             .map { UserMapper.mapUserResponsesToDomains(input: $0) }
             .eraseToAnyPublisher()
     }

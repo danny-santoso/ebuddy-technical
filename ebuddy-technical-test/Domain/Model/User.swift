@@ -46,11 +46,5 @@ struct User: Identifiable {
     var rate: Float?
     var ratting: Float?
     var reviews: Int?
-    var games: [Game]?
-}
-
-struct Game: Identifiable {
-    var id: String
-    var name: String?
-    var imageURL: String?
+    var games: [String]?
 }
