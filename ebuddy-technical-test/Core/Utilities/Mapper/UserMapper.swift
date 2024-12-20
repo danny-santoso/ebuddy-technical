@@ -11,9 +11,17 @@ final class UserMapper {
             guard let id = response.id else { return nil }
             return User(
                 id: id,
+                name: response.name,
                 email: response.email,
                 phone: response.phone,
-                gender: response.gender != .unknown ? Gender(response: response.gender) : nil)
+                gender: response.gender != .unknown ? Gender(response: response.gender) : nil,
+                imageURL: response.imageURL,
+                isVerified: response.isVerified,
+                isOnline: response.isOnline,
+                instagramURL: response.instagramURL,
+                rate: response.rate,
+                ratting: response.ratting,
+                reviews: response.reviews)
         }
     }
 }

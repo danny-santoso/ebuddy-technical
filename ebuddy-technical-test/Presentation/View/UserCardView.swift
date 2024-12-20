@@ -102,7 +102,7 @@ struct UserCardView: View {
                                 Text("\(ratting, specifier: "%.1f")")
                                     .font(.subheadline)
                                     .bold()
-                                Text("\(reviews)")
+                                Text("(\(reviews))")
                                     .font(.footnote)
                                     .foregroundColor(.gray)
                             }
