@@ -33,9 +33,24 @@ enum Gender {
     }
 }
 
-struct User {
+struct User: Identifiable {
     var id: String
+    var name: String?
     var email: String?
     var phone: String?
     var gender: Gender?
+    var imageURL: String?
+    var isVerified: Bool?
+    var isOnline: Bool?
+    var instagramURL: String?
+    var rate: Float?
+    var ratting: Float?
+    var reviews: Int?
+    var games: [Game]?
+}
+
+struct Game: Identifiable {
+    var id: String
+    var name: String?
+    var imageURL: String?
 }

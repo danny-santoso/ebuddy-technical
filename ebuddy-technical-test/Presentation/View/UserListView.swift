@@ -15,27 +15,21 @@ struct UserListView: View {
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             if viewModel.loadingState {
                 Text("Loading")
             } else {
                 VStack {
                     if let users = viewModel.users {
-                        List {
-                            ForEach(users, id: \.id) { user in
-                                VStack {
-                                    Text(user.id)
-                                    if let email = user.email {
-                                        Text(email)
-                                    }
-                                    if let phone = user.phone {
-                                        Text(phone)
-                                    }
-                                    if let gender = user.gender?.stringValue {
-                                        Text(gender)
-                                    }
+                        ScrollView(.horizontal) {
+                            LazyHStack(alignment: .center, spacing: 16) {
+                                ForEach(users) { user in
+                                    UserCardView(user: user)
+                                        .frame(width: 170, height: 340)
+                                        .frame(maxHeight: .infinity, alignment: .top)
                                 }
                             }
+                            .padding()
                         }
                     } else if let errorMessage = viewModel.errorMessage {
                         Text(errorMessage)
