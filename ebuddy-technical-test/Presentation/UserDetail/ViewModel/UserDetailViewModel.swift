@@ -15,14 +15,17 @@ final class UserDetailViewModel: ObservableObject {
     
     private let uploadImageUseCase: UploadImageUseCase
     
+    private let updateImageProfileUseCase: UpdateImageProfileUseCase
+    
     @Published var user: User
     
     @Published var isPickerPresented: Bool = false
     
     @Published var selectedImage: UIImage? = nil
     
-    init(uploadImageUseCase: UploadImageUseCase, user: User) {
+    init(uploadImageUseCase: UploadImageUseCase, updateImageProfileUseCase: UpdateImageProfileUseCase, user: User) {
         self.uploadImageUseCase = uploadImageUseCase
+        self.updateImageProfileUseCase = updateImageProfileUseCase
         self.user = user
         self.setupBindings()
     }
@@ -42,9 +45,18 @@ final class UserDetailViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { [weak self] result in
-                print(result)
-                // conduct update firebase data
+                self?.updateImage(imageUrl: result.url)
             })
+            .store(in: &cancellables)
+    }
+    
+    func updateImage(imageUrl: String) {
+        updateImageProfileUseCase.execute(userId: user.id, imageURL: imageUrl)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self, case .finished = completion else { return }
+                self.user.imageURL = imageUrl
+            }, receiveValue: { _ in })
             .store(in: &cancellables)
     }
     

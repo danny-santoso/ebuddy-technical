@@ -15,6 +15,12 @@ protocol FirebaseServiceProtocol {
         filters: [(field: String, value: Any)],
         sorting: [(field: String, descending: Bool)]
     ) -> AnyPublisher<[Response], Error>
+    
+    func updateFields(
+        inCollection path: String,
+        documentID: String,
+        fields: [String: Any]
+    ) -> AnyPublisher<Void, Error>
 }
 
 extension FirebaseServiceProtocol {
@@ -51,6 +57,29 @@ final class FirebaseService {
 }
 
 extension FirebaseService: FirebaseServiceProtocol {
+    func updateFields(
+        inCollection path: String,
+        documentID: String,
+        fields: [String: Any]
+    ) -> AnyPublisher<Void, Error> {
+        return Future<Void, Error> { [weak self] completion in
+            guard let self = self else {
+                completion(.failure(FirebaseServiceError.unknownError))
+                return
+            }
+            
+            let documentRef = self.firestore.collection(path).document(documentID)
+            
+            documentRef.setData(fields, merge: true) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    
     func getDocuments<Response: Decodable>(
         to type: Response.Type,
         collection path: String,

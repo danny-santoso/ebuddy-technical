@@ -16,7 +16,10 @@ class UserListCoordinator: Coordinator {
     func navigate(to destination: UserListDestination) -> AnyView {
         switch destination {
         case .userDetail(let user):
-            let viewModel = UserDetailViewModel(uploadImageUseCase: Injection.init().provideUploadImage(), user: user)
+            let viewModel = UserDetailViewModel(
+                uploadImageUseCase: Injection.init().provideUploadImage(),
+                updateImageProfileUseCase: Injection.init().provideUpdateImage(),
+                user: user)
             return AnyView(DetailUserView(viewModel: viewModel))
         }
     }

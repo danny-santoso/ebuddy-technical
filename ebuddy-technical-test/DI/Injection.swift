@@ -18,6 +18,14 @@ final class Injection: NSObject {
         return UserRepository(dataSource: remote)
     }
     
+    private func provideImageProfileRepository() -> ImageProfileRepositoryProtocol {
+        let firestore = FirebaseService(firestore: Firestore.firestore())
+        
+        let remote: ImageProfileRemoteDataSource = ImageProfileRemoteDataSource(service: firestore)
+        
+        return ImageProfileRepository(dataSource: remote)
+    }
+    
     private func provideUploadImageRepository() -> ImageUploaderRepositoryProtocol {
         let uploaderService = UploaderService()
         
@@ -34,5 +42,10 @@ final class Injection: NSObject {
     func provideUploadImage() -> UploadImageUseCase {
         let repository = provideUploadImageRepository()
         return UploadImageUseCase(repository: repository)
+    }
+    
+    func provideUpdateImage() -> UpdateImageProfileUseCase {
+        let repository = provideImageProfileRepository()
+        return UpdateImageProfileUseCase(repository: repository)
     }
 }
