@@ -18,6 +18,7 @@ struct UserListView: View {
         ZStack(alignment: .topLeading) {
             if viewModel.loadingState {
                 Text("Loading")
+                    .foregroundColor(.textPrimary)
             } else {
                 VStack {
                     if let users = viewModel.users {

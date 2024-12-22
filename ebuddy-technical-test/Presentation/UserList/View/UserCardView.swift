@@ -19,7 +19,7 @@ struct UserCardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
+                .fill(Color.bgCardGeneral)
                 .shadow(color: .gray.opacity(0.3), radius: 8, x: 0, y: 4)
             
             VStack(alignment: .leading, spacing: 12) {
@@ -28,6 +28,7 @@ struct UserCardView: View {
                         Text(name)
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.textPrimary)
                     }
                     if user.isVerified ?? false || user.instagramURL != nil {
                         HStack(spacing: 8) {
@@ -37,7 +38,7 @@ struct UserCardView: View {
                             if let instagramURL = user.instagramURL, !instagramURL.isEmpty {
                                 Image("instagram")
                                     .renderingMode(.template)
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(.textPrimary)
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -60,10 +61,12 @@ struct UserCardView: View {
                             HStack(alignment: .center, spacing: 4) {
                                 Image("lightning")
                                     .resizable()
+                                    .renderingMode(.template)
+                                    .foregroundStyle(.textPrimary)
                                     .frame(width: 16, height: 16)
                                 Text("Available today!")
                                     .font(.caption)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.textPrimary)
                             }
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
@@ -101,6 +104,7 @@ struct UserCardView: View {
                                 Text("\(ratting, specifier: "%.1f")")
                                     .font(.subheadline)
                                     .bold()
+                                    .foregroundColor(.textPrimary)
                                 Text("(\(reviews))")
                                     .font(.footnote)
                                     .foregroundColor(.gray)
@@ -111,6 +115,7 @@ struct UserCardView: View {
                                 Image("flame")
                                 Text("\(rate, specifier: "%.2f")/1Hr")
                                     .font(.subheadline)
+                                    .foregroundColor(.textPrimary)
                             }
                         }
                     }

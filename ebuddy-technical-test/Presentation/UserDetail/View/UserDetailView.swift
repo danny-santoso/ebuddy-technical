@@ -38,30 +38,39 @@ struct DetailUserView: View {
                 HStack {
                     Text("Name: ")
                         .font(.headline)
+                        .foregroundColor(.textPrimary)
                     Text(viewModel.user.name ?? "-")
                         .frame(maxWidth: .infinity, alignment: .trailing)
+                        .foregroundColor(.textPrimary)
                 }
                 HStack {
                     Text("Gender: ")
                         .font(.headline)
+                        .foregroundColor(.textPrimary)
                     Text(viewModel.user.gender?.stringValue ?? "-")
                         .frame(maxWidth: .infinity, alignment: .trailing)
+                        .foregroundColor(.textPrimary)
                 }
                 HStack {
                     Text("Email: ")
                         .font(.headline)
+                        .foregroundColor(.textPrimary)
                     Text(viewModel.user.email ?? "-")
                         .frame(maxWidth: .infinity, alignment: .trailing)
+                        .foregroundColor(.textPrimary)
                 }
                 HStack {
                     Text("Rate:")
                         .font(.headline)
+                        .foregroundColor(.textPrimary)
                     if let rate = viewModel.user.rate {
                         Text("\(rate, specifier: "%.2f")/1Hr")
                             .frame(maxWidth: .infinity, alignment: .trailing)
+                            .foregroundColor(.textPrimary)
                     } else {
                         Text("-")
                             .frame(maxWidth: .infinity, alignment: .trailing)
+                            .foregroundColor(.textPrimary)
                     }
                 }
                 if let games = viewModel.user.games, !games.isEmpty {
@@ -69,6 +78,7 @@ struct DetailUserView: View {
                         .font(.title3)
                         .bold()
                         .padding(.top, 20)
+                        .foregroundColor(.textPrimary)
                     HStack {
                         ForEach(games.prefix(2), id: \.self) { game in
                             WebImage(url: URL(string: game))
