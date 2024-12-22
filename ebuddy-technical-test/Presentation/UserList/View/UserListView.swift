@@ -24,9 +24,11 @@ struct UserListView: View {
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .center, spacing: 16) {
                                 ForEach(users) { user in
-                                    UserCardView(user: user)
-                                        .frame(width: 170, height: 340)
-                                        .frame(maxHeight: .infinity, alignment: .top)
+                                    viewModel.linkBuilder(for: user, content: {
+                                        UserCardView(user: user)
+                                            .frame(width: 170, height: 340)
+                                            .frame(maxHeight: .infinity, alignment: .top)
+                                    }).buttonStyle(PlainButtonStyle())
                                 }
                             }
                             .padding()

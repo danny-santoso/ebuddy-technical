@@ -18,8 +18,21 @@ final class Injection: NSObject {
         return UserRepository(dataSource: remote)
     }
     
+    private func provideUploadImageRepository() -> ImageUploaderRepositoryProtocol {
+        let uploaderService = UploaderService()
+        
+        let remote: ImageUploaderDataSource = ImageUploaderDataSource(service: uploaderService)
+        
+        return ImageUploaderRepository(dataSource: remote)
+    }
+    
     func provideFetchUser() -> FetchUserUseCase {
         let repository = provideUserRepository()
         return FetchUserUseCase(repository: repository)
+    }
+    
+    func provideUploadImage() -> UploadImageUseCase {
+        let repository = provideUploadImageRepository()
+        return UploadImageUseCase(repository: repository)
     }
 }

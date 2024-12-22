@@ -7,12 +7,15 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class UserListViewModel: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     
     private let fetchUserUseCase: FetchUserUseCase
+    
+    private let coordinator = UserListCoordinator()
     
     @Published var users: [User]?
     @Published var errorMessage: String?
@@ -38,5 +41,13 @@ final class UserListViewModel: ObservableObject {
                 self?.users = users
             })
             .store(in: &cancellables)
+    }
+    
+    func linkBuilder<Content: View>(
+        for user: User,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(
+            destination: coordinator.navigate(to: .userDetail(user))) { content() }
     }
 }
