@@ -27,7 +27,7 @@ final class Injection: NSObject {
     }
     
     private func provideUploadImageRepository() -> ImageUploaderRepositoryProtocol {
-        let uploaderService = UploaderService()
+        let uploaderService = UploaderService.sharedInstance
         
         let remote: ImageUploaderDataSource = ImageUploaderDataSource(service: uploaderService)
         

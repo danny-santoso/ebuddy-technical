@@ -8,31 +8,29 @@
 import Alamofire
 import Combine
 import Foundation
+import UIKit
 
 protocol UploaderServiceProtocol: AnyObject {
-    func upload<Response: Decodable>(
-        to type: Response.Type,
+    func upload(
         url: URL?,
         headers: [String: String],
         parameters: [String: Any],
         fileData: Data,
         fileName: String,
         mimeType: String
-    ) -> AnyPublisher<Response, Error>
+    ) -> AnyPublisher<ImageUploaderResponse, Error>
 }
 
 extension UploaderServiceProtocol {
-    func upload<Response: Decodable>(
-        to type: Response.Type,
+    func upload(
         url: URL?,
         headers: [String: String] = [:],
         parameters: [String: Any] = [:],
         fileData: Data,
         fileName: String,
         mimeType: String
-    ) -> AnyPublisher<Response, Error> {
+    ) -> AnyPublisher<ImageUploaderResponse, Error> {
         upload(
-            to: type,
             url: url,
             headers: headers,
             parameters: parameters,
@@ -43,33 +41,39 @@ extension UploaderServiceProtocol {
     }
 }
 
-final class UploaderService: UploaderServiceProtocol {
+final class UploaderService: NSObject, UploaderServiceProtocol {
     
     enum UploaderServiceError: Error {
         case unknownError
         case urlNotFound
         case decodingError
+        case invalidResponse
+        case noData
     }
     
-    private let urlSession: URLSession
+    var session: URLSession?
     
-    static func sharedInstance(urlSession: URLSession) -> UploaderService {
-        return UploaderService(urlSession: urlSession)
+    private let urlSessionSubject = PassthroughSubject<ImageUploaderResponse, Error>()
+    
+    init(config: URLSessionConfiguration) {
+        super.init()
+        self.session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }
     
-    init(urlSession: URLSession = .shared) {
-        self.urlSession = urlSession
-    }
+    static var sharedInstance: UploaderService = {
+        let config = URLSessionConfiguration.background(withIdentifier: "com.dannysantoso.ebuddy-technical-test.background.upload")
+        config.isDiscretionary = true
+        return UploaderService(config: config)
+    }()
     
-    func upload<Response: Decodable>(
-        to type: Response.Type,
+    func upload(
         url: URL?,
         headers extra: [String: String] = [:],
         parameters: [String: Any] = [:],
         fileData: Data,
         fileName: String,
         mimeType: String
-    ) -> AnyPublisher<Response, Error> {
+    ) -> AnyPublisher<ImageUploaderResponse, Error> {
         let boundary = "Boundary-\(UUID().uuidString)"
         var headers: [String: String] = [
             "Content-Type": "multipart/form-data; boundary=\(boundary)",
@@ -78,32 +82,83 @@ final class UploaderService: UploaderServiceProtocol {
         if let apiKey = Bundle.main.infoDictionary?["IMAGEKIT_API_KEY"] as? String {
             headers["Authorization"] = "Basic \(apiKey)"
         }
-        headers.merge(extra) { first, _ in first }
+        headers.merge(extra) { current, _ in current }
         
-        return Future<Response, Error> { promise in
-            guard let url else { return promise(.failure(UploaderServiceError.urlNotFound)) }
-            AF.upload(
-                multipartFormData: { multipartFormData in
-                    for (key, value) in parameters {
-                        guard let stringValue = value as? String else { continue }
-                        multipartFormData.append(Data(stringValue.utf8), withName: key)
-                    }
-                    multipartFormData.append(Data(fileName.utf8), withName: "fileName")
-                    multipartFormData.append(fileData, withName: "file", fileName: "\(fileName).png", mimeType: mimeType)
-                },
-                to: url,
-                headers: HTTPHeaders(headers)
-            )
-            .validate()
-            .responseDecodable(of: Response.self) { response in
-                switch response.result {
-                case .success(let data):
-                    promise(.success(data))
-                case .failure(let error):
-                    promise(.failure(error))
-                }
-            }
+        guard let url, let session else { return Fail(error: UploaderServiceError.urlNotFound).eraseToAnyPublisher() }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        headers.forEach { key, value in
+            request.setValue(value, forHTTPHeaderField: key)
         }
-        .eraseToAnyPublisher()
+        
+        var body = Data()
+        
+        for (key, value) in parameters {
+            guard let stringValue = value as? String else { continue }
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(stringValue)\r\n".data(using: .utf8)!)
+        }
+        
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"fileName\"\r\n\r\n".data(using: .utf8)!)
+        body.append("\(fileName)\r\n".data(using: .utf8)!)
+        
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName).png\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
+        body.append(fileData)
+        body.append("\r\n".data(using: .utf8)!)
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        do {
+            let fileURL = try createTemporaryFile(from: body, with: fileName)
+            let task = session.uploadTask(with: request, fromFile: fileURL)
+            task.resume()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        
+        return urlSessionSubject.eraseToAnyPublisher()
+    }
+    
+    private func createTemporaryFile(from data: Data, with fileName: String) throws -> URL {
+        let tempDirectory = FileManager.default.temporaryDirectory
+        let fileURL = tempDirectory.appendingPathComponent(fileName)
+        try data.write(to: fileURL)
+        return fileURL
+    }
+}
+
+extension UploaderService: URLSessionDataDelegate {
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let fileURL = (task as? URLSessionUploadTask)?.originalRequest?.url {
+            try? FileManager.default.removeItem(at: fileURL)
+        }
+        
+        if let error = error {
+            urlSessionSubject.send(completion: .failure(error))
+        } else if let httpResponse = task.response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
+            urlSessionSubject.send(completion: .finished)
+        } else {
+            urlSessionSubject.send(completion: .failure(UploaderServiceError.invalidResponse))
+        }
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        do {
+            let decodedResponse = try JSONDecoder().decode(ImageUploaderResponse.self, from: data)
+            urlSessionSubject.send(decodedResponse)
+        } catch {
+            urlSessionSubject.send(completion: .failure(UploaderServiceError.decodingError))
+        }
+    }
+}
+
+extension UploaderService: URLSessionDelegate {
+    func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+        print("Background URLSession finished")
     }
 }

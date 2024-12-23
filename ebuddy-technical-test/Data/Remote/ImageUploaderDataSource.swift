@@ -23,6 +23,6 @@ final class ImageUploaderDataSource: NSObject {
 
 extension ImageUploaderDataSource: ImageUploaderDataSourceProtocol {
     func uploadImage(file data: Data, name fileName: String, type mimeType: String) -> AnyPublisher<ImageUploaderResponse, Error> {
-        return service.upload(to: ImageUploaderResponse.self, url: URL(string: NSString.imageUploaderURL()), fileData: data, fileName: fileName, mimeType: mimeType)
+        return service.upload(url: URL(string: NSString.imageUploaderURL()), fileData: data, fileName: fileName, mimeType: mimeType)
     }
 }
